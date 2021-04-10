@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/10 15:33:13 by cmariot          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -56,7 +69,7 @@ int main(void)
 	printf("strchr %c dans %s : %s\n", c, constr, strchr(constr, c));
 
 	constr = "Last occurence";
-	c = '\0';
+	c = 'Z';
 	printf("ft_strrchr %c dans %s : %s\n", c, constr, ft_strrchr(constr, c));
 	printf("strrchr %c dans %s : %s\n", c, constr, strrchr(constr, c));
 
@@ -77,9 +90,15 @@ int main(void)
 
 	const char *haystack = "TROUVE TOTO";
 	const char *needle = "TOTO";
-	size_t size = 10; 
+	size_t size = 20; 
 	printf("ft_strnstr : %s\n", ft_strnstr(haystack, needle, size));
 	printf("strnstr : %s\n", strnstr(haystack, needle, size));
+
+	const char *atoi_str;
+	atoi_str = "   \t \n \r \v -11323";
+	printf("ft_atoi %s : %d\n", atoi_str, ft_atoi(atoi_str));
+	printf("atoi %s : %d\n", atoi_str, atoi(atoi_str));
+
 
 
 	return (0);
