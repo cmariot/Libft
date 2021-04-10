@@ -16,6 +16,8 @@ int main(void)
 	int		c;
 	const char	*constr2;
         size_t		n;
+	char		*src;
+
 
 	str = "compte";
         printf("ft_strlen %s : %zu\n", str, ft_strlen(str));
@@ -62,5 +64,23 @@ int main(void)
 	n = 20;
 	printf("ft_strncmp de %s VS %s sur %zu char : %d\n", constr, constr2, n, ft_strncmp(constr, constr2, n));
 	printf("strncmp de %s VS %s sur %zu char : %d\n", constr, constr2, n, strncmp(constr, constr2, n));
+
+	src = "COPIE MOI";
+	char	dest[10];
+	printf("ft_strlcpy : %lu\n", ft_strlcpy(dest, src, ft_strlen(dest)));
+	printf("strlcpy : %lu\n", strlcpy(dest, src, ft_strlen(dest)));
+	
+	src = "COPIE MOI";
+	char	dest2[3] = "ICI";
+	printf("ft_strlcat : %lu\n", ft_strlcat(dest2, src, ft_strlen(dest2)));
+	printf("strlcat : %lu\n", strlcat(dest2, src, ft_strlen(dest2)));
+
+	const char *haystack = "TROUVE TOTO";
+	const char *needle = "TOTO";
+	size_t size = 10; 
+	printf("ft_strnstr : %s\n", ft_strnstr(haystack, needle, size));
+	printf("strnstr : %s\n", strnstr(haystack, needle, size));
+
+
 	return (0);
 }
