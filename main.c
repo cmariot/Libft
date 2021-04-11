@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/10 15:33:13 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/11 13:59:43 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 int main(void)
 {
-        const char	*str;
+/*        const char	*str;
 	int		is_alpha;
 	int		is_digit;
 	int		is_alnum;
@@ -99,7 +101,18 @@ int main(void)
 	printf("ft_atoi %s : %d\n", atoi_str, ft_atoi(atoi_str));
 	printf("atoi %s : %d\n", atoi_str, atoi(atoi_str));
 
+	char test[100] = "Salut";
+	printf("memset : %s\n", memset(test, '$', 3));
+	printf("ft_memset : %s\n", ft_memset(test, '$', 3));
 
+	int		file_descriptor;
+	file_descriptor = open("./test.txt", O_RDWR, O_APPEND);
+	file_descriptor = 1;	
+	ft_putchar_fd('X', file_descriptor);
+	ft_putendl_fd("TEST@", file_descriptor);
+	ft_putnbr_fd(100234, file_descriptor);
+	ft_putstr_fd("NOTUVEAU TEST", file_descriptor);
+*/
 
 	return (0);
 }

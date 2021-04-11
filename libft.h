@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:34:23 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/10 14:52:53 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/11 12:40:07 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t  ft_strlcat(char *dest, char *src, size_t dest_size);
 char    *ft_strnstr(const char *str, const char *to_find, size_t len);
 int     ft_atoi(const char *str);
+//void *ft_memset(void *b, int c, size_t len);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+
 
 #endif
