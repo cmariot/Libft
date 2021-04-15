@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/11 13:59:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/13 16:58:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,31 @@ int main(void)
 	ft_putendl_fd("TEST@", file_descriptor);
 	ft_putnbr_fd(100234, file_descriptor);
 	ft_putstr_fd("NOTUVEAU TEST", file_descriptor);
-*/
 
+	char *src;
+	src = "test pour voir";
+	printf("%s\n", ft_strdup(src));
+	printf("%s\n", strdup(src));
+
+	char *s1;
+	char *s2;
+	s1 = "Concatene ";
+	s2 = "moi !";
+	printf("%s\n", ft_strjoin(s1, s2));
+
+	char *str;
+	unsigned int start;
+	size_t	len;
+	str = "SUB MOI CETTE STR";
+	start = 4;
+	len = 3;
+	printf("%s\n", ft_substr(str, start, len));
+*/
+	char const *s1;
+	char const *set;
+
+	s1 = "\"SALUT\"";
+	set = "\"";
+	printf("%s\n", ft_strtrim(s1, set));
 	return (0);
 }
