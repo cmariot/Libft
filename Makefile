@@ -1,20 +1,26 @@
-NAME	= libft.a
+NAME = libft.a
 
-SRCS	= *.c
+SRCS = *.c
 
-OBJS	= *.o
+OBJS = ${SRCS:.c=.o}
 
-HEAD	= libft.h
+HEAD = libft.h
 
-CC	= gcc
+CC = gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
+INCLUDES = ./
 
-${NAME}:	
-		${CC} ${CFLAGS} ${SRCS}
+.c.o:
+		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
 
-all :		${NAME}
+all:		${NAME}
+
+$(NAME): $(SRCS) libft.h
+	gcc -Wall -Wextra -Werror -I $(INCLUDES) -c $(SRCS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 clean:
 		rm -f ${OBJS}
