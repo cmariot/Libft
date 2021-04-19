@@ -21,6 +21,7 @@ $(NAME): $(SRCS) libft.h
 	gcc -Wall -Wextra -Werror -I $(INCLUDES) -c $(SRCS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+	make clean
 
 clean:
 		rm -f ${OBJS}

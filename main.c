@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/13 16:58:02 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/19 13:17:38 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,12 +131,17 @@ int main(void)
 	start = 4;
 	len = 3;
 	printf("%s\n", ft_substr(str, start, len));
-*/
+
 	char const *s1;
 	char const *set;
 
 	s1 = "\"SALUT\"";
 	set = "\"";
 	printf("%s\n", ft_strtrim(s1, set));
+*/
+//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+
+	ft_itoa(-2147483648LL);
+
 	return (0);
 }
