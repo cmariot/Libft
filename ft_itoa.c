@@ -16,10 +16,10 @@
 
 char	*ft_itoa(int n)
 {
-	int	n_cpy;
-	int	n_len;
+	int		n_cpy;
+	int		n_len;
 	char	*nombre;
-	int	signe;
+	int		signe;
 	char	*special_cas;
 
 	if (n == 0)

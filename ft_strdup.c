@@ -15,10 +15,10 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int	src_len;
+	int		src_len;
 	char	*src;
 	char	*cpy;
-	int	i;
+	int		i;
 
 	src = (char *)s1;
 	src_len = 0;

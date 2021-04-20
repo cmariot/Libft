@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 11:52:14 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/11 12:45:01 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/19 14:13:45 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/19 18:04:52 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putendl_fd(char *s, int fd)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	while (*s)
-		write(fd, s++, 1);
-	write(fd, "\n", 1);
+	char	*str;
+/*	int	s1_size;
+	int	i;
+
+	if (!s1 || !set)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+
+	
+	str = ft_substr((char*)s1, start, s1_len);*/
+	s1 = NULL;
+	set = NULL;
+	str = NULL;
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/19 13:17:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/20 11:56:13 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,9 +139,9 @@ int main(void)
 	set = "\"";
 	printf("%s\n", ft_strtrim(s1, set));
 */
-//	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
 
-	ft_itoa(-2147483648LL);
+//	ft_itoa(-2147483648LL);
 
 	return (0);
 }
