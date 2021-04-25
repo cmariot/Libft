@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:14:08 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/20 13:05:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/25 17:10:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	**ft_split(char const *s, char c)
 		i++;
 		if (s[i] == c || s[i] == '\0')
 		{
-		 	if (!(strs[j] = malloc(sizeof(char *) * (k + 1))))
+		 	if (!(strs[j] = malloc(sizeof(unsigned char) * (k + 1))))
 				return (NULL);
 			while (s[i] == c)
 				i++;
@@ -76,5 +76,6 @@ char	**ft_split(char const *s, char c)
 			k = 0;
 		}
 	}
+	
 	return (strs);
 }

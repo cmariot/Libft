@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/19 13:45:46 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/25 17:20:23 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ char	*ft_itoa(int n)
 
 	if (n == 0)
 	{
-		if (!(special_cas = malloc(sizeof(char) * 2)))
+		special_cas = malloc(sizeof(char) * 2);
+		if (special_cas == NULL)
 			return (NULL);
 		special_cas = ft_memcpy(special_cas, "0", 1);
 		return (special_cas);
 	}
 	if (n == -2147483648)
 	{
-		if (!(special_cas = malloc(sizeof(char) * 12)))
+		special_cas = malloc(sizeof(char) * 12);
+		if (special_cas == NULL)
 			return (NULL);
 		special_cas = ft_memcpy(special_cas, "-2147483648", 11);
 		return (special_cas);
@@ -50,7 +52,8 @@ char	*ft_itoa(int n)
 		n_cpy = n_cpy / 10;
 		n_len++;
 	}
-	if (!(nombre = malloc(sizeof(char) * (n_len + signe))))
+	nombre = malloc(sizeof(char) * (n_len + signe));
+	if (nombre == NULL)
 		return (NULL);
 	nombre[n_len] = '\0';
 	if (signe == 2)
