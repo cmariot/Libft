@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:14:08 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/26 17:02:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/26 22:43:47 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ char	**ft_split(char const *s, char c)
 	int		words;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	strs = malloc(sizeof(char *) * (words + 1));
 	if (strs == NULL)

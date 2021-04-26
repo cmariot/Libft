@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 09:55:52 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/25 16:11:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/26 22:42:55 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int				s_len;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	str = malloc(sizeof(char) * s_len + 1);
 	if (str == NULL)

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:43:39 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/10 18:57:49 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/26 19:25:45 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	static_isspace(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	i;
-	int	sign;
+	int		result;
+	int		i;
+	int		sign;
 
 	result = 0;
 	i = 0;

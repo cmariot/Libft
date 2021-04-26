@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/26 13:48:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/26 18:41:35 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	int_len(int n)
 char	*int_to_array(int signe, char *nombre, int n, int n_len)
 {
 	nombre[n_len] = '\0';
-	if (signe == 2)
+	if (signe == 1)
 		nombre[0] = '-';
 	while (n != 0)
 	{
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 	if (special_case != NULL)
 		return (special_case);
 	n_len = int_len(n);
-	signe = 1;
+	signe = 0;
 	if (n < 0)
 	{
 		n = -n;
