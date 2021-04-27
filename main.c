@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:35:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/26 14:06:23 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/27 19:49:25 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <dlfcn.h>
+#include <time.h>
+#include <execinfo.h>
+#include <locale.h>
+#include <sys/mman.h>
+#include <errno.h>
+#include <sys/time.h>
+#include <stdarg.h>
+
+void	*electric_alloc(size_t size)
+{
+	void	*ptr = mmap(NULL, 8192lu, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
+
+	memset(ptr, 'Z', 8192lu);
+	mprotect(ptr + 4096, 4096, PROT_NONE);
+	return (ptr + 4096 - size);
+}
 
 int main(void)
 {
@@ -97,7 +117,7 @@ int main(void)
 	printf("strnstr : %s\n", strnstr(haystack, needle, size));
 
 	const char *atoi_str;
-	atoi_str = "   \t \n \r \v -11323";
+	atoi_str = "   \t \n \r \v -9823456789998123456776543210";
 	printf("ft_atoi %s : %d\n", atoi_str, ft_atoi(atoi_str));
 	printf("atoi %s : %d\n", atoi_str, atoi(atoi_str));
 
@@ -138,19 +158,29 @@ int main(void)
 	s1 = "-SALUT-";
 	set = "-";
 	printf("%s\n", ft_strtrim(s1, set));
-*/
-		ft_split("          ", ' ');
-		printf("\n\n");
-		ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-		printf("\n\n");
-		ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-		printf("\n\n");
-		ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i');
-		printf("\n\n");
-		ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z');
-		printf("\n\n");
 
+	char **strs;
+	strs = ft_split("      split       this for   me  !       ", ' ');
+	int i = 0;
+	while (i < 5)
+	{
+		printf("%s\n", strs[i]);
+		i++;
+	}
+
+*/
 //	ft_itoa(-2147483648LL);
+//	ft_strrchr("0123456789", 9999999);
+
+
+
+
+
+
+
+
+
+
 
 	return (0);
 }

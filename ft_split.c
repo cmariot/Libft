@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:14:08 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/26 22:43:47 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/04/27 19:28:40 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,94 +23,63 @@ int	count_words(char const *s, char c)
 	words = 0;
 	if (s == NULL)
 		return (0);
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
+		if (*s == c)
+			i = 0;
+		else if (i == 0)
 		{
+			i = 1;
 			words++;
-			while (s[i] == c)
-				i++;
 		}
-		i++;
+		s++;
 	}
-	if (s[i - 1] != c)
-		words++;
 	return (words);
 }
 
-char	**malloc_strs(char const *s, char c, char **strs)
+static void	get_next_len_str(char **strs, unsigned int *str_len, char c)
 {
-	int	i;
-	int	j;
-	int	word_len;
+	unsigned int	i;
 
+	*strs = *strs + *str_len;
+	*str_len = 0;
 	i = 0;
-	j = 0;
-	word_len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] != '\0')
+	while (**strs && **strs == c)
+		(*strs)++;
+	while ((*strs)[i])
 	{
+		if ((*strs)[i] == c)
+			return ;
+		(*str_len)++;
 		i++;
-		if (s[i] == c || s[i] == '\0')
-		{
-			strs[j] = malloc(sizeof(char) * (word_len + 1));
-			if (strs[j] == NULL)
-				return (NULL);
-			while (s[i] == c)
-				i++;
-			j++;
-			word_len = 0;
-		}
-		word_len++;
 	}
-	return (strs);
-}
-
-char	**fill_strs(char const *s, char c, char **strs, int words)
-{
-	int	i;
-	int	j;
-	int	word_len;
-
-	i = 0;
-	j = 0;
-	word_len = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i] != '\0' && j != words)
-	{
-		strs[j][word_len] = (unsigned char)s[i];
-		i++;
-		word_len++;
-		if (s[i] == c)
-		{
-			while (s[i] == c)
-				i++;
-			strs[j][word_len] = '\0';
-			j++;
-			word_len = 0;
-		}
-	}	
-	return (strs);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	int		i;
-	int		words;
+	char			**strs;
+	int				words;
+	int				i;
+	char			*str;
+	unsigned int	str_len;
 
-	i = 0;
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
 	strs = malloc(sizeof(char *) * (words + 1));
 	if (strs == NULL)
 		return (NULL);
-	strs = malloc_strs(s, c, strs);
-	strs = fill_strs(s, c, strs, words);
+	i = 0;
+	str = (char *)s;
+	str_len = 0;
+	while (i < words)
+	{
+		get_next_len_str(&str, &str_len, c);
+		strs[i] = (char *)malloc(sizeof(char) * (str_len + 1));
+		if (strs[i] == NULL)
+			return (NULL);
+		ft_strlcpy(strs[i++], str, str_len + 1);
+	}
+	strs[i] = NULL;
 	return (strs);
 }
