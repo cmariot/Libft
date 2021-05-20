@@ -10,11 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-CC = gcc
-
-CCFLAGS = -Wall -Wextra -Werror
+NAME=libft.a
+CC=gcc
+CCFLAGS=-Wall -Wextra -Werror
 
 SRCS = ft_calloc.c \
        ft_itoa.c \
