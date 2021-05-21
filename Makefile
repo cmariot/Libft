@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 13:41:13 by cmariot           #+#    #+#              #
-#    Updated: 2021/04/28 14:17:04 by cmariot          ###   ########.fr        #
+#    Updated: 2021/05/20 16:47:36 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,20 @@ SRCS = ft_calloc.c \
        ft_strlen.c \
        ft_substr.c
 
+BONUS_SRCS = ft_lstnew.c \
+	     ft_lstadd_front.c \
+	     ft_lstsize.c \
+	     ft_lstlast.c \
+	     ft_lstadd_back.c \
+	     ft_lstdelone.c \
+	     ft_lstclear.c \
+	     ft_lstiter.c \
+	     ft_lstmap.c
+
+
 OBJS = ${SRCS:.c=.o}
+
+BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 RM = rm -rf
 
@@ -60,6 +73,9 @@ all:		${NAME}
 
 $(NAME): ${OBJS}
 	ar rc ${NAME} ${OBJS}
+
+bonus: ${OBJS} ${BONUS_OBJS}
+	ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
 
 clean:
 		${RM} ${OBJS}
