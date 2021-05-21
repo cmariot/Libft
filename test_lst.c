@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:11:04 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/21 10:20:12 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/21 10:43:27 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,9 @@ void ft_lstadd_back(t_list **alst, t_list *new)
 	}
 }
 
- 
-void delete(void *pt)
-{
-	free(*pt);
-}
-
 void ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list *tmp;
-	del = &delete;
 
 	while (*lst)
 	{
@@ -137,7 +130,7 @@ int main()
 	list = ft_add_list(list, "titi\n");
 	list =ft_add_list(list, "DELONE\n");
 //	delfirst(list);
-	ft_lstclear(&list, del(*lst));	
+	ft_lstclear(&list, &free);	
 	print_list(list);
 	printf("%d\n", ft_lstsize(list));
 	return (0);

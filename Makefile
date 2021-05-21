@@ -6,11 +6,8 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 13:41:13 by cmariot           #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2021/05/20 11:01:49 by cmariot          ###   ########.fr        #
-=======
+#    Updated: 2021/05/21 11:21:29 by cmariot          ###   ########.fr        #
 #    Updated: 2021/05/20 16:47:36 by cmariot          ###   ########.fr        #
->>>>>>> 615616d644a3645449a5d412d5decc0da5597ee1
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,12 +54,9 @@ BONUS_SRCS = ft_lstnew.c \
 	     ft_lstadd_front.c \
 	     ft_lstsize.c \
 	     ft_lstlast.c \
-	     ft_lstadd_back.c \
 	     ft_lstdelone.c \
 	     ft_lstclear.c \
-	     ft_lstiter.c \
-	     ft_lstmap.c
-
+	     ft_lstiter.c
 
 OBJS = ${SRCS:.c=.o}
 
