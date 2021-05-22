@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 16:51:05 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/21 07:45:58 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/22 17:03:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ void ft_lstadd_back(t_list **alst, t_list *new)
 			tmp->next = new;
 		}
 	}
+}
+
+int	main()
+{
+	t_list list;
+	t_list new;
+
+	list = ft_lstnew("ELEMLIST1\n");
+
+	return (0);
 }
