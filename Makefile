@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 13:41:13 by cmariot           #+#    #+#              #
-#    Updated: 2021/05/22 13:36:48 by cmariot          ###   ########.fr        #
+#    Updated: 2021/05/22 15:39:05 by cmariot          ###   ########.fr        #
 #    Updated: 2021/05/20 16:47:36 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -77,7 +77,7 @@ bonus: ${OBJS} ${BONUS_OBJS}
 	ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
 		${RM} ${NAME}

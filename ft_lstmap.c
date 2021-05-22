@@ -6,24 +6,22 @@
 /*   By: cmariot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 10:08:06 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/22 13:36:42 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/22 16:22:30 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstmap(t_list *lst, void (*f)(void *))
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *tmp;
-	tmp = NULL;
 
-	if (!lst || !f )
-		return (NULL);
+	tmp = NULL;
 	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
-	}
+	}	
 	return (tmp);
 }
 
@@ -71,6 +69,18 @@ void	print_list(t_list *list)
 	}
 }
 
+void ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	t_list *tmp;
+
+	if (lst)
+	{
+		tmp = (lst)->next;
+		del(lst);
+		lst = tmp;
+	}
+}
+
 int	main(void)
 {
 	t_list *liste;
@@ -80,6 +90,7 @@ int	main(void)
 	ft_lstadd_back(&liste, ft_lstnew("1\n"));
 	ft_lstadd_back(&liste, ft_lstnew("2\n"));
 	print_list(liste);
-	new_list = ft_lstmap(liste, &free); 
+	new_list = ft_lstmap(liste, &free, &free); 
+	print_list(new_list);
 	return (0);
 }
