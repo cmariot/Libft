@@ -6,7 +6,7 @@
 /*   By: cmariot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 10:08:06 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/22 16:22:30 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/23 10:16:32 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,17 @@
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *tmp;
+	t_list *new_elmt;
+	t_list *new_lst;
 
-	tmp = NULL;
+	new_lst = NULL;
 	while (lst)
 	{
-		f(lst->content);
-		lst = lst->next;
-	}	
-	return (tmp);
-}
-
-void ft_lstiter(t_list *lst, void (*f)(void *))
-{
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
+		new_elmt = ft_lstnew(f(lst));
+		ft_lstadd_back(&new_lst, new_elmt);
+		del(lst);
 	}
-}
-
-void ft_lstadd_back(t_list **alst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (alst)
-	{
-		if (*alst == NULL)
-			*alst = new;
-		else
-		{
-			tmp = ft_lstlast(*(alst));
-			tmp->next = new;
-		}
-	}
+	return (new_lst);
 }
 
 void	ft_putstr(char *str)
@@ -58,6 +33,7 @@ void	ft_putstr(char *str)
 	{
 		write(1, str++, 1);
 	}
+
 }
 
 void	print_list(t_list *list)
@@ -69,16 +45,9 @@ void	print_list(t_list *list)
 	}
 }
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void *VOID(void *lol)
 {
-	t_list *tmp;
-
-	if (lst)
-	{
-		tmp = (lst)->next;
-		del(lst);
-		lst = tmp;
-	}
+	return (lol);
 }
 
 int	main(void)
@@ -90,7 +59,7 @@ int	main(void)
 	ft_lstadd_back(&liste, ft_lstnew("1\n"));
 	ft_lstadd_back(&liste, ft_lstnew("2\n"));
 	print_list(liste);
-	new_list = ft_lstmap(liste, &free, &free); 
+	new_list = ft_lstmap(liste, &VOID, &free); 
 	print_list(new_list);
 	return (0);
 }
