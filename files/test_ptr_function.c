@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   test_ptr_function.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cmariot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:11:31 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/23 13:00:54 by cmariot          ###   ########.fr       */
+/*   Created: 2021/05/21 10:13:23 by cmariot           #+#    #+#             */
+/*   Updated: 2021/05/22 16:25:43 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void ft_putchar(char c)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	write(1, &c, 1);
+}
+
+int main()
+{
+	void (*f)(char);
+
+	f = &ft_putchar;
+	f('a');
+	return (0);
 }
