@@ -6,7 +6,8 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/28 13:41:13 by cmariot           #+#    #+#              #
-#    Updated: 2021/05/22 01:11:11 by cmariot          ###   ########.fr        #
+#    Updated: 2021/05/22 20:34:31 by cmariot          ###   ########.fr        #
+#    Updated: 2021/05/22 15:39:05 by cmariot          ###   ########.fr        #
 #    Updated: 2021/05/20 16:47:36 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -57,7 +58,8 @@ BONUS_SRCS = ft_lstnew.c \
 	     ft_lstlast.c \
 	     ft_lstdelone.c \
 	     ft_lstclear.c \
-	     ft_lstiter.c
+	     ft_lstiter.c \
+	     ft_lstmap.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -77,7 +79,7 @@ bonus: ${OBJS} ${BONUS_OBJS}
 	ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${BONUS_OBJS}
 
 fclean:		clean
 		${RM} ${NAME}
