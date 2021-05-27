@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 10:55:58 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/26 18:01:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/27 18:50:25 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		del(*lst);
+		ft_lstdelone(*lst, (del));
 		*lst = tmp;
 	}
 }
