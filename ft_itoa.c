@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/26 18:41:35 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/26 16:10:33 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*special_case_itoa(int n)
 		if (special_cas == NULL)
 			return (NULL);
 		special_cas = ft_memcpy(special_cas, "0", 1);
+		special_cas[1] = '\0';
 		return (special_cas);
 	}
 	else if (n == -2147483648)

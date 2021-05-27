@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 15:27:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/10 15:36:16 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/26 15:35:18 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	to_find_len = ft_strlen(to_find);
 	if (to_find_len == 0)
 		return (haystack);
-	while (str[i] != '\0' && i < len - 1)
+	while (str[i] != '\0' && i <= len)
 	{
 		comparaison = ft_strncmp(&str[i], to_find, to_find_len);
 		if (comparaison == 0 && (i + to_find_len <= len))
