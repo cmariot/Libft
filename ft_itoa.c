@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/28 10:51:18 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/28 11:58:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,10 @@
 
 char	*special_case_itoa(int n)
 {
-	char	*special_cas;
-
 	if (n == 0)
-	{
-		special_cas = malloc(sizeof(char) * 2);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "0", 1);
-		special_cas[1] = '\0';
-		return (special_cas);
-	}
+		return (ft_strdup("0"));
 	else if (n == -2147483648)
-	{
-		special_cas = malloc(sizeof(char) * 12);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "-2147483648", 11);
-		return (special_cas);
-	}
+		return (ft_strdup("-2147483648"));
 	else
 		return (NULL);
 }
