@@ -6,13 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/26 16:10:33 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/28 10:51:18 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
-#include <stdlib.h>
 
 char	*special_case_itoa(int n)
 {

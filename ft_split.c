@@ -6,13 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 13:14:08 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/27 19:28:40 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/28 10:53:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 int	count_words(char const *s, char c)
 {
