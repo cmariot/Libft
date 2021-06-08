@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/05/20 14:11:04 by cmariot           #+#    #+#             */
+/*   Updated: 2021/05/23 13:03:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	src_len;
-	size_t	dest_len;
-	size_t	i;
+	t_list	*tmp;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
-	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	tmp = malloc(sizeof(t_list));
+	if (tmp)
 	{
-		dest[i + dest_len] = src[i];
-		i++;
+		tmp->content = content;
+		tmp->next = NULL;
+		return (tmp);
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
 	else
-		return (src_len + dest_len);
+		return (NULL);
 }

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/18 14:58:09 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/26 18:29:23 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	src_len;
-	size_t	dest_len;
+	char	*tab;
 	size_t	i;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
+	tab = malloc(size * count);
+	if (!tab)
+		return (NULL);
 	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	while (i < count * size)
 	{
-		dest[i + dest_len] = src[i];
+		tab[i] = 0;
 		i++;
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
-	else
-		return (src_len + dest_len);
+	return (tab);
 }

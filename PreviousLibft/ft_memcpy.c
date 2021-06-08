@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/18 13:43:54 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/26 17:55:49 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	src_len;
-	size_t	dest_len;
 	size_t	i;
+	char	*dest;
+	char	*source;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
+	if (!dst && !src)
+		return (NULL);
 	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	dest = (char *)dst;
+	source = (char *)src;
+	while (i < n)
 	{
-		dest[i + dest_len] = src[i];
+		dest[i] = source[i];
 		i++;
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
-	else
-		return (src_len + dest_len);
+	return (dest);
 }

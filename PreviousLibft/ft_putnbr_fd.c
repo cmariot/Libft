@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/11 12:26:31 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/11 13:55:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	src_len;
-	size_t	dest_len;
-	size_t	i;
+	long int	nb;
+	char		*base_dec;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
-	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	nb = n;
+	base_dec = "0123456789";
+	if (nb < 0)
 	{
-		dest[i + dest_len] = src[i];
-		i++;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
+	if ((nb >= 0) && (nb <= 9))
+	{
+		write(fd, &base_dec[nb], 1);
+	}
 	else
-		return (src_len + dest_len);
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		write(fd, &base_dec[nb % 10], 1);
+	}
 }

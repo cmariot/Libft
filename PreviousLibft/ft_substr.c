@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/13 14:55:01 by cmariot           #+#    #+#             */
+/*   Updated: 2021/05/24 10:32:29 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	src_len;
-	size_t	dest_len;
+	char	*str;
 	size_t	i;
+	size_t	j;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
+	if (!len)
+		return (NULL);
+	str = malloc(sizeof(char) * (len + 1));
+	if (!s || str == NULL)
+		return (NULL);
 	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	j = 0;
+	while (s[i])
 	{
-		dest[i + dest_len] = src[i];
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
-	else
-		return (src_len + dest_len);
+	str[j] = '\0';
+	return (str);
 }

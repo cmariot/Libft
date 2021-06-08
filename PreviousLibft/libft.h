@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:34:23 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:51:39 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/05/25 12:43:38 by cmariot          ###   ########.fr       */
 /*   Updated: 2021/05/22 17:08:17 by cmariot          ###   ########.fr       */
 /*   Updated: 2021/05/22 16:25:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
@@ -58,7 +58,7 @@ char		**ft_split(char const *s, char c);
 char		*ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s1);
 char		*ft_strjoin(char const *s1, char const *s2);
-size_t		ft_strlcat(char *dest, const char *src, size_t dest_size);
+size_t		ft_strlcat(char *dest, char *src, size_t dest_size);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlen(const char *s);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));

@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/10 15:18:15 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/10 15:21:17 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+int	static_isalpha(int c)
 {
-	size_t	src_len;
-	size_t	dest_len;
-	size_t	i;
-
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
-	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
-	{
-		dest[i + dest_len] = src[i];
-		i++;
-	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (1);
 	else
-		return (src_len + dest_len);
+		return (0);
+}
+
+int	static_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_isalnum(int c)
+{
+	if (static_isalpha(c) == 1 || static_isdigit(c) == 1)
+		return (1);
+	else
+		return (0);
 }

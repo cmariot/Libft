@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:27:12 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:57:56 by cmariot          ###   ########.fr       */
+/*   Created: 2021/04/10 15:27:33 by cmariot           #+#    #+#             */
+/*   Updated: 2021/04/10 15:36:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dest_size)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	size_t	src_len;
-	size_t	dest_len;
-	size_t	i;
+	unsigned int	i;
+	unsigned int	to_find_len;
+	char			*haystack;
+	int				comparaison;
 
-	src_len = ft_strlen(src);
-	dest_len = ft_strlen(dest);
-	if (!dest_size)
-		return (src_len);
+	haystack = (char *)str;
 	i = 0;
-	while (src[i] && i + dest_len < dest_size - 1)
+	to_find_len = ft_strlen(to_find);
+	if (to_find_len == 0)
+		return (haystack);
+	while (str[i] != '\0' && i < len - 1)
 	{
-		dest[i + dest_len] = src[i];
+		comparaison = ft_strncmp(&str[i], to_find, to_find_len);
+		if (comparaison == 0 && (i + to_find_len <= len))
+			return (&haystack[i]);
 		i++;
 	}
-	dest[i + dest_len] = 0;
-	if (dest_size < dest_len + 1)
-		return (dest_size + src_len);
-	else
-		return (src_len + dest_len);
+	return (0);
 }
