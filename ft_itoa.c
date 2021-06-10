@@ -6,13 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/10 18:14:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/06/10 21:25:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*special_case_itoa(int n)
+static char	*special_case_itoa(int n)
 {
 	char	*str;
 
@@ -30,7 +30,7 @@ char	*special_case_itoa(int n)
 		return (NULL);
 }
 
-int	int_len(int n)
+static int	int_len(int n)
 {
 	int	n_len;
 
@@ -43,7 +43,7 @@ int	int_len(int n)
 	return (n_len);
 }
 
-char	*int_to_array(int signe, char *nombre, int n, int n_len)
+static char	*int_to_array(int signe, char *nombre, int n, int n_len)
 {
 	nombre[n_len] = '\0';
 	if (signe == 1)
@@ -57,7 +57,7 @@ char	*int_to_array(int signe, char *nombre, int n, int n_len)
 	return (nombre);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		n_len;
 	char	*nombre;
