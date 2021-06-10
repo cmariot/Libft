@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/09 09:44:53 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:14:07 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*special_case_itoa(int n)
 	}
 	else if (n == -2147483648)
 	{
-		str = ft_strdup("-2147483648")
+		str = ft_strdup("-2147483648");
 		return (str);
 	}
 	else
