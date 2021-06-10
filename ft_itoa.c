@@ -6,33 +6,25 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:59:23 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/06/09 09:44:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
-#include <stdlib.h>
 
 char	*special_case_itoa(int n)
 {
-	char	*special_cas;
+	char	*str;
 
 	if (n == 0)
 	{
-		special_cas = malloc(sizeof(char) * 2);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "0", 1);
-		return (special_cas);
+		str = ft_strdup("0");
+		return (str);
 	}
 	else if (n == -2147483648)
 	{
-		special_cas = malloc(sizeof(char) * 12);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "-2147483648", 11);
-		return (special_cas);
+		str = ft_strdup("-2147483648")
+		return (str);
 	}
 	else
 		return (NULL);
