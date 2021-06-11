@@ -6,13 +6,17 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:43:39 by cmariot           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/06/10 12:39:18 by cmariot          ###   ########.fr       */
+=======
+/*   Updated: 2021/06/10 21:24:03 by cmariot          ###   ########.fr       */
+>>>>>>> 09fe7fcea90338b7cadcf7968d8b8159a8574bb1
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	local_isspace(char c)
+static int	local_isspace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\n' || \
 			c == '\r' || c == '\t' || c == '\v')
@@ -21,7 +25,7 @@ int	local_isspace(char c)
 		return (0);
 }
 
-int	long_nb_return(int nb_len, int sign)
+static int	long_nb_return(int nb_len, int sign)
 {
 	if (nb_len > 10 && sign != -1)
 		return (-1);
@@ -31,7 +35,7 @@ int	long_nb_return(int nb_len, int sign)
 		return (1);
 }
 
-int	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
 	int		result;
 	int		i;
