@@ -6,37 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:59:23 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/06/10 12:30:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
-#include <stdlib.h>
-
-char	*special_case_itoa(int n)
-{
-	char	*special_cas;
-
-	if (n == 0)
-	{
-		special_cas = malloc(sizeof(char) * 2);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "0", 1);
-		return (special_cas);
-	}
-	else if (n == -2147483648)
-	{
-		special_cas = malloc(sizeof(char) * 12);
-		if (special_cas == NULL)
-			return (NULL);
-		special_cas = ft_memcpy(special_cas, "-2147483648", 11);
-		return (special_cas);
-	}
-	else
-		return (NULL);
-}
 
 int	int_len(int n)
 {
@@ -70,20 +44,21 @@ char	*ft_itoa(int n)
 	int		n_len;
 	char	*nombre;
 	int		signe;
-	char	*special_case;
 
-	special_case = special_case_itoa(n);
-	if (special_case != NULL)
-		return (special_case);
-	n_len = int_len(n);
+	if (n == 0)
+		return (ft_strdup("0"));
+	else if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	signe = 0;
+	n_len = 0;
 	if (n < 0)
 	{
 		n = -n;
 		signe++;
 		n_len++;
 	}
-	nombre = malloc(sizeof(char) * (n_len + signe));
+	n_len += int_len(n);
+	nombre = malloc(sizeof(char) * (n_len + 1));
 	if (nombre == NULL)
 		return (NULL);
 	nombre = int_to_array(signe, nombre, n, n_len);
