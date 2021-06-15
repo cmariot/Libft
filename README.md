@@ -6,6 +6,8 @@ Pour compiler la librairie et générer libft.a, il faut simplement taper la com
 Les commandes "make re", "make clean", "make fclean" et "make bonus" (liste chainées) sont égalenent displonibles.</br>
 Pour compiler un programme qui utilise une fonction de la Libft, il s'uffit de compiler avec "gcc mon_programme.c libft.a"
 
+<img width="1046" alt="Libft" src="https://user-images.githubusercontent.com/65048901/122075773-9d545580-cdfa-11eb-9ea3-c029d036e78f.png">
+
 ## Prototypes des fonctions :
 
 <ul>
