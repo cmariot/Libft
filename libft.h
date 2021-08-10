@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:34:23 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/08 15:51:39 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/08/10 09:56:34 by cmariot          ###   ########.fr       */
 /*   Updated: 2021/05/22 17:08:17 by cmariot          ###   ########.fr       */
 /*   Updated: 2021/05/22 16:25:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
@@ -14,6 +14,8 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define BUFFER_SIZE 10
 
 # include <string.h>
 # include <stdlib.h>
@@ -69,5 +71,9 @@ char		*ft_strtrim(char const *s1, char const *set);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
+char		*get_next_line(int fd);
+void		ft_add_buf_to_str(char **str, void *buf);
+char		*ft_strdel(char **adr_str);
+char		*gnl_outpout(ssize_t read_return, char **str_input);
 
 #endif
