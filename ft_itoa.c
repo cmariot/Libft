@@ -6,13 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/06/11 11:40:52 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/08/10 11:12:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	int_len(int n)
+static int	static_int_len(int n)
 {
 	int	n_len;
 
@@ -57,7 +57,7 @@ char	*ft_itoa(int n)
 		signe++;
 		n_len++;
 	}
-	n_len += int_len(n);
+	n_len += static_int_len(n);
 	nombre = malloc(sizeof(char) * (n_len + 1));
 	if (nombre == NULL)
 		return (NULL);
