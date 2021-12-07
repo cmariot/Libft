@@ -27,8 +27,8 @@ OBJS_DIR	= objs/
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
-CFLAGS	+= -I $(INCL_DIR)
+CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		+= -I $(INCL_DIR)
 
 # **************************************************************************** #
 #                                SOURCE FILES                                  #
