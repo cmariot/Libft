@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:23:25 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/26 15:27:34 by cmariot          ###   ########.fr       */
+/*   Created: 2021/09/23 17:22:57 by cmariot           #+#    #+#             */
+/*   Updated: 2021/09/23 17:24:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_free_array(char **array)
 {
-	char	*str;
-	int		i;
+	int	i;
 
-	if ((char)c < 0 || (char)c > 127)
-		return (NULL);
-	str = (char *)s;
+	if (array == NULL)
+		return ;
 	i = 0;
-	while (str[i] != '\0')
+	while (array[i])
 	{
-		if (str[i] == (char)c)
-			return (&str[i]);
+		free(array[i]);
 		i++;
 	}
-	if (str[i] == '\0' && (char)c == '\0')
-		return (&str[i]);
-	return (NULL);
+	free(array);
+	return ;
 }

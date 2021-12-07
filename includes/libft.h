@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:34:23 by cmariot           #+#    #+#             */
-/*   Updated: 2021/08/12 22:07:42 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/04 09:17:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_list
 int			ft_atoi(const char *str);
 void		ft_bzero(void *b, size_t n);
 void		*ft_calloc(size_t count, size_t size);
+void		ft_free_array(char **array);
 size_t		ft_intlen(int n);
 int			ft_isalnum(int c);
 int			ft_isalpha(int c);
