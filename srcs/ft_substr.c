@@ -6,11 +6,14 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 14:55:01 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/28 15:28:54 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/29 13:12:54 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* substr() retourne la partie d'une chaine de caractères comprise entre
+ * l'indice de départ et un certain nombre de caractères après celui-ci. */
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

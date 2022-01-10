@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putarray.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/18 13:43:54 by cmariot           #+#    #+#             */
-/*   Updated: 2021/12/13 09:58:40 by cmariot          ###   ########.fr       */
+/*   Created: 2021/12/15 16:10:31 by cmariot           #+#    #+#             */
+/*   Updated: 2021/12/31 14:37:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*  ft_memcpy() copies n bytes from memory area src to memory area dst.
- *	If dst and src overlap, behavior is undefined.
- *	Applications in which dst and src might overlap should use ft_memmove. */
+// Print an array of char * like this :
+// name[i] = array[i]
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putarray(char *name, char **array)
 {
-	char	*dest;
-	char	*source;
-	size_t	i;
+	int	i;
 
-	if (!dst && !src)
-		return (NULL);
-	dest = (char *)dst;
-	source = (char *)src;
 	i = 0;
-	while (i < n)
+	while (array[i])
 	{
-		dest[i] = source[i];
+		ft_putstr(name);
+		ft_putchar('[');
+		ft_putnbr(i);
+		ft_putstr("] = [");
+		ft_putstr(array[i]);
+		ft_putstr("]\n");
 		i++;
 	}
-	return (dest);
 }

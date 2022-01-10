@@ -6,17 +6,22 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 15:27:33 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/28 15:31:28 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/13 11:17:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/* The ft_strnstr() function locates the first occurrence of the null-terminated
+ * string to_find in the string str, where not more than len characters
+ * are searched.
+ * Characters that appear after a ‘\0’ character are not searched. */
+
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
+	char			*haystack;
 	unsigned int	i;
 	unsigned int	to_find_len;
-	char			*haystack;
 	int				comparaison;
 
 	haystack = (char *)str;

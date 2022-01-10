@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 18:57:32 by cmariot           #+#    #+#              #
-#    Updated: 2021/12/04 12:55:36 by cmariot          ###   ########.fr        #
+#    Updated: 2022/01/09 14:49:53 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,11 @@ OBJS_DIR	= objs/
 #                         COMPILATION AND LINK FLAGS                           #
 # **************************************************************************** #
 
-CC		= gcc
+CC		= clang
 
 CFLAGS	= -Wall -Wextra -Werror
 CFLAGS	+= -I $(INCL_DIR)
+CFLAGS	+= -g3
 
 # **************************************************************************** #
 #                                SOURCE FILES                                  #
@@ -39,6 +40,7 @@ SRCS	= ft_atoi.c \
 		  ft_calloc.c \
 		  ft_free_array.c \
 		  ft_itoa.c \
+		  ft_isadirectory.c \
 		  ft_isalnum.c \
 		  ft_isalpha.c \
 		  ft_isascii.c \
@@ -50,13 +52,16 @@ SRCS	= ft_atoi.c \
 		  ft_memcpy.c \
 		  ft_memmove.c \
 		  ft_memset.c \
+		  ft_putarray.c \
 		  ft_putchar.c \
 		  ft_putchar_fd.c \
 		  ft_putendl_fd.c \
+		  ft_putnbr.c \
 		  ft_putnbr_fd.c \
 		  ft_putstack.c \
 		  ft_putstr.c \
 		  ft_putstr_fd.c \
+		  ft_realloc.c \
 		  ft_split.c \
 		  ft_strchr.c \
 		  ft_strdup.c \
@@ -69,6 +74,7 @@ SRCS	= ft_atoi.c \
 		  ft_strncmp.c \
 		  ft_strnstr.c \
 		  ft_strrchr.c \
+		  ft_strtoll.c \
 		  ft_strtrim.c \
 		  ft_substr.c \
 		  ft_tolower.c \
@@ -83,6 +89,7 @@ SRCS	= ft_atoi.c \
 		  ft_lstnew.c \
 		  ft_lstsize.c \
 		  get_next_line.c \
+		  gnl_without_bn.c \
 		  ft_intlen.c
 
 SRC		:= $(notdir $(SRCS))
@@ -135,16 +142,16 @@ norm :
 
 # Remove object files
 clean :
-		@printf "$(RE)Removing $(OBJS_DIR) ... "
+		@printf "Removing $(OBJS_DIR) ... "
 		@rm -rf $(OBJS_DIR)
 		@printf "Done\n"
 
 # Remove object and binary files
 fclean:
-		@printf "$(RE)Removing ${NAME} ... "
+		@printf "Removing ${NAME} ... "
 		@rm -f ${NAME}
 		@printf "Done\n"
-		@printf "$(RE)Removing $(OBJS_DIR) ... "
+		@printf "Removing $(OBJS_DIR) ... "
 		@rm -rf $(OBJS_DIR)
 		@printf "Done\n"
 

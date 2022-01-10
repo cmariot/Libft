@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:17:05 by cmariot           #+#    #+#             */
-/*   Updated: 2021/12/12 12:04:11 by cmariot          ###   ########.fr       */
+/*   Created: 2021/12/15 17:15:55 by cmariot           #+#    #+#             */
+/*   Updated: 2021/12/15 17:27:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Return 1 if c is an alphabetic character, else return 0 */
+// Print an integer on STDOUT
 
-int	ft_isalpha(int c)
+void	ft_putnbr(int n)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
+	long	nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb >= 0 && nb <= 9)
+	{
+		ft_putchar('0' + nb);
+	}
 	else
-		return (0);
+	{
+		ft_putnbr(nb / 10);
+		ft_putchar('0' + (nb % 10));
+	}
 }

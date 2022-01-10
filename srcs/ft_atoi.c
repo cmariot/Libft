@@ -6,11 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:43:39 by cmariot           #+#    #+#             */
-/*   Updated: 2021/08/12 16:52:55 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/12 11:51:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* ft_atoi converts an array of char into an integer */
 
 static int	long_nb_return(int nb_len, int sign)
 {
@@ -25,26 +27,23 @@ static int	long_nb_return(int nb_len, int sign)
 int	ft_atoi(const char *str)
 {
 	int		result;
-	int		i;
+	int		result_len;
 	int		sign;
-	int		nb_len;
+	int		i;
 
-	result = 0;
 	i = 0;
 	sign = 1;
-	nb_len = 0;
 	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = -1;
-		i++;
-	}
+	result = 0;
+	result_len = 0;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + str[i++] - '0';
-		nb_len++;
+		result_len++;
 	}
-	if (nb_len > 10)
-		return (long_nb_return(nb_len, sign));
+	if (result_len > 10)
+		return (long_nb_return(result_len, sign));
 	return (sign * result);
 }

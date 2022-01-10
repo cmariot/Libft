@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isadirectory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:17:05 by cmariot           #+#    #+#             */
-/*   Updated: 2021/12/12 12:04:11 by cmariot          ###   ########.fr       */
+/*   Created: 2021/12/31 14:52:22 by cmariot           #+#    #+#             */
+/*   Updated: 2022/01/10 12:32:11 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Return 1 if c is an alphabetic character, else return 0 */
+/* Check if path is a directory */
 
-int	ft_isalpha(int c)
+bool	ft_isadirectory(char *path)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
+	DIR	*fd_dir;
+
+	fd_dir = opendir(path);
+	if (fd_dir == NULL)
+	{
+		return (FALSE);
+	}
 	else
-		return (0);
+	{
+		closedir(fd_dir);
+		return (TRUE);
+	}
 }

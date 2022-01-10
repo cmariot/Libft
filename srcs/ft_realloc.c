@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:17:05 by cmariot           #+#    #+#             */
-/*   Updated: 2021/12/12 12:04:11 by cmariot          ###   ########.fr       */
+/*   Created: 2021/12/09 22:23:23 by cmariot           #+#    #+#             */
+/*   Updated: 2022/01/06 15:45:17 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Return 1 if c is an alphabetic character, else return 0 */
-
-int	ft_isalpha(int c)
+char	*ft_realloc(void *previous, char *new)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
+	char	*str;
+
+	str = NULL;
+	if (previous != NULL && new != NULL)
+	{
+		free(previous);
+		str = ft_strdup(new);
+	}
+	return (str);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 15:17:05 by cmariot           #+#    #+#             */
-/*   Updated: 2021/12/12 12:04:11 by cmariot          ###   ########.fr       */
+/*   Created: 2022/01/08 04:02:55 by cmariot           #+#    #+#             */
+/*   Updated: 2022/01/08 04:54:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Return 1 if c is an alphabetic character, else return 0 */
-
-int	ft_isalpha(int c)
+void	red(void)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
+	write(1, "\033[1;31m", 7);
+}
+
+void	green(void)
+{
+	write(1, "\033[1;32m", 7);
+}
+
+void	reset_color(void)
+{
+	write(1, "\033[0m", 4);
 }

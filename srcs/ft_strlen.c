@@ -6,18 +6,20 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 13:37:43 by cmariot           #+#    #+#             */
-/*   Updated: 2021/04/21 19:33:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/31 21:00:01 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
+/* ft_strlen() returns the len of a string */
 
-	i = 0;
-	while (*s++)
-		i++;
-	return (i);
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }

@@ -6,11 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:17:38 by cmariot           #+#    #+#             */
-/*   Updated: 2021/08/10 11:12:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/29 12:59:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* ft_itoa() converts an integer into an array of char */
 
 static int	static_int_len(int n)
 {

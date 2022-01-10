@@ -6,36 +6,35 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 15:02:06 by cmariot           #+#    #+#             */
-/*   Updated: 2021/05/28 10:54:05 by cmariot          ###   ########.fr       */
+/*   Updated: 2021/12/25 14:55:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// ft_strjoin() alloc new with the size of len and fill this thew string
+// with s1 and s2, it returns new;
 char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*new;
 	int		i;
 	int		j;
-	int		s1_size;
-	int		s2_size;
-	char	*str;
+	int		len;
 
 	if (!s1 || !s2)
 		return (NULL);
-	s1_size = ft_strlen(s1);
-	s2_size = ft_strlen(s2);
-	str = malloc(sizeof(char) * (s1_size + s2_size + 1));
-	if (str == NULL)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	new = ft_calloc(len, sizeof(char));
+	if (new == NULL)
 		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{
-		str[i] = s1[i];
+		new[i] = s1[i];
 		i++;
 	}
 	j = 0;
 	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[i] = '\0';
-	return (str);
+		new[i++] = s2[j++];
+	return (new);
 }
