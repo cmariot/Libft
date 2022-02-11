@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_arraylen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 13:37:43 by cmariot           #+#    #+#             */
-/*   Updated: 2022/01/28 01:05:39 by cmariot          ###   ########.fr       */
+/*   Created: 2022/01/28 10:19:05 by cmariot           #+#    #+#             */
+/*   Updated: 2022/01/28 10:20:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* ft_strlen() returns the len of a string */
-
-size_t	ft_strlen(const char *str)
+int	ft_array_len(char **array)
 {
-	size_t	len;
+	int	len;
 
-	if (str == NULL)
-		return (0);
 	len = 0;
-	while (str[len])
-		len++;
+	if (array == NULL)
+		return (0);
+	else
+		while (array[len] != NULL)
+			len++;
 	return (len);
 }

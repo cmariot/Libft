@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_is_in_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 13:37:43 by cmariot           #+#    #+#             */
-/*   Updated: 2022/01/28 01:05:39 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/03 19:23:18 by cmariot           #+#    #+#             */
+/*   Updated: 2022/02/03 19:26:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* ft_strlen() returns the len of a string */
+/* Return TRUE if the character c is in str */
 
-size_t	ft_strlen(const char *str)
+bool	ft_is_in_str(char *str, char c)
 {
-	size_t	len;
+	size_t	i;
 
-	if (str == NULL)
-		return (0);
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			return (TRUE);
+		i++;
+	}
+	return (FALSE);
 }
