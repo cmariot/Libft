@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/27 18:57:32 by cmariot           #+#    #+#              #
-#    Updated: 2022/02/05 13:54:44 by cmariot          ###   ########.fr        #
+#    Updated: 2022/02/11 19:38:09 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,11 +112,11 @@ SRCS		= $(addprefix $(SRC_DIR), $(SRC))
 #                                COLORS                                        #
 # **************************************************************************** #
 
-GR		= \033[32;1m
-RE		= \033[31;1m
-YE		= \033[33;1m
-CYAN	= \033[36;1m
-RC		= \033[0m
+GREEN		= \033[32;1m
+RED			= \033[31;1m
+YELLOW		= \033[33;1m
+CYAN		= \033[36;1m
+RESET		= \033[0m
 
 
 # **************************************************************************** #
@@ -141,17 +141,23 @@ norm :
 clean :
 		@make --no-print-directory -C $(PRINT_DIR) clean
 		@rm -rf $(DIROBJ)
+		@printf "$(RED)"
+		@printf "Object files removed.\n"
+		@printf "$(RESET)"
 
 fclean :
 		@make --no-print-directory -C $(PRINT_DIR) fclean
 		@rm -f $(NAME)
 		@rm -rf $(DIROBJ)
+		@printf "$(RED)"
+		@printf "Object files and libraries removed.\n"
+		@printf "$(RESET)"
 
 re :	 fclean all
 
 header :
 		@printf "$(CYAN)"
-		@printf "\nLIBFT COMPILATION\n"
-		@printf "$(RC)"
+		@printf "LIBFT COMPILATION\n"
+		@printf "$(RESET)"
 
 .PHONY : clean fclean
